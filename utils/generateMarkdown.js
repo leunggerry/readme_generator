@@ -38,10 +38,12 @@ function generateTableOfContents(installation, usage, contributors, tests, licen
   mdTableOfContents += installation ? `- [Installation Instructions](#installation)\n` : ``;
   // append usage
   mdTableOfContents += usage ? `  - [Usage](#usage)\n` : ``;
-  // append contributors
-  mdTableOfContents += contributors ? `  - [Contributors](#contributors)\n` : ``;
   // append tests
   mdTableOfContents += tests ? `  - [Tests](#tests)\n` : ``;
+  // append contributors
+  mdTableOfContents += contributors ? `  - [Contributors](#contributors)\n` : ``;
+  // append questions
+  mdTableOfContents += `  - [Questions](#questions)\n`;
   // append license
   mdTableOfContents += license ? `  - [License](#license)\n` : ``;
 
@@ -90,9 +92,15 @@ function generateMarkdown(data) {
 
   ${mdInstallInstructions}
   ${mdUsage}
+  ${mdTests}
   ${mdContributors}
+  ## Questions
+  If you have any questions regarding the status of this project or any concerns please refer to my GitHub repo:
+  [${githubUsername.githubUsername}](https://github.com/${githubUsername.githubUsername})
+  For more information you can contact:
+  [${email.email}](mailto:${email.email})
   ${mdLicense}
-  ${mdTests}`;
+  `;
 }
 
 /** Module Exports
