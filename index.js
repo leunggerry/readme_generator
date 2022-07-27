@@ -119,9 +119,21 @@ const PROJECT_QUESTIONS = [
   },
   {
     type: "confirm",
-    name: "confirmUsage",
-    message: "Did you include any images of how to use the application?",
+    name: "confirmUsageVideo",
+    message: "Do you have link to a video of how to use your application?",
     default: false,
+  },
+  {
+    type: "input",
+    name: "usageVideoLink",
+    message: "Please provide the link to your video of using your application: ",
+    when: ({ confirmUsageVideo }) => {
+      if (confirmUsageVideo) {
+        return true;
+      } else {
+        return false;
+      }
+    },
   },
   {
     type: "confirm",
@@ -212,6 +224,10 @@ var projectPropertiesObj = {
     usage: "",
     include: false,
   },
+  usageVideoLink: {
+    usageVideoLink: "",
+    include: false,
+  },
   license: {
     license: "",
     include: false,
@@ -225,10 +241,10 @@ var projectPropertiesObj = {
     include: false,
   },
 };
-var dataObj = {
-  userPropertiesObj,
-  projectPropertiesObj,
-};
+// var dataObj = {
+//   userPropertiesObj,
+//   projectPropertiesObj,
+// };
 /** Function Definitions
  **************************************************************************************************/
 function promptUserInfoInput() {
@@ -286,6 +302,7 @@ function getProjectSectionPropertyName(property) {
     case "description":
     case "installInstructions":
     case "usage":
+    case "usageVideoLink":
     case "license":
     case "contributors":
     case "tests":

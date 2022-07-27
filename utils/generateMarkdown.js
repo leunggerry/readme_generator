@@ -60,6 +60,7 @@ function generateMarkdown(data) {
     description,
     installInstructions,
     usage,
+    usageVideoLink,
     license,
     contributors,
     tests,
@@ -69,6 +70,7 @@ function generateMarkdown(data) {
     ? `## Installation\n${installInstructions.installInstructions}`
     : ``;
   let mdUsage = usage.include ? `## Usage\n${usage.usage}\n` : ``;
+  let mdUsageVideoLink = usageVideoLink.include ? `${usageVideoLink.usageVideoLink}` : ``;
   let mdLicenseBadge = license.include ? renderLicenseBadge(license.license) : ``;
   let mdLicense = license.include ? renderLicenseSection(license.license) : ``;
   let mdContributors = contributors.include ? `## Contributors\n${contributors.contributors}\n` : ``;
@@ -92,6 +94,7 @@ function generateMarkdown(data) {
 
   ${mdInstallInstructions}
   ${mdUsage}
+  ${mdUsageVideoLink}
   ${mdTests}
   ${mdContributors}
   ## Questions
