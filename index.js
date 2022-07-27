@@ -119,6 +119,12 @@ const PROJECT_QUESTIONS = [
   },
   {
     type: "confirm",
+    name: "confirmUsage",
+    message: "Did you include any images of how to use the application?",
+    default: false,
+  },
+  {
+    type: "confirm",
     name: "confirmLicense",
     message: "Do you have a license for your application",
     default: false,
