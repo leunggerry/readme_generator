@@ -269,7 +269,6 @@ function init() {
   promptProjectInfoInput()
     // Step 2: save into global proj info
     .then((projectInfo) => {
-      console.log("then promise set 2: " + projectInfo);
       return setProjectInfo(projectInfo);
     })
     // Step 3: generate the md data
@@ -309,7 +308,6 @@ function getProjectSectionPropertyName(property) {
       section = property;
       break;
     default:
-      console.log("Unknown section property: " + property);
       section = "";
       break;
   }
@@ -343,7 +341,6 @@ function setProjectInfo(projInfo) {
       setProjectProperty(section, property, projInfo[property]);
     }
   }
-  console.log("setProjectInfo: " + projectPropertiesObj);
   return projectPropertiesObj;
 }
 
@@ -357,7 +354,6 @@ function getProjectProperty(key) {
 function setProjectProperty(section, key, value) {
   projectPropertiesObj[section][key] = value;
   projectPropertiesObj[section]["include"] = true;
-  // console.log(projectPropertiesObj);
 }
 /** Main Function
  **************************************************************************************************/
