@@ -105,7 +105,7 @@ const PROJECT_QUESTIONS = [
     default: false,
   },
   {
-    type: "input",
+    type: "editor",
     name: "usage",
     message:
       "Please provide some instructions and examples for use. Please include your screenshots in the res/images directory",
@@ -161,7 +161,7 @@ const PROJECT_QUESTIONS = [
     default: false,
   },
   {
-    type: "input",
+    type: "editor",
     name: "tests",
     message: "Please enter test cases.",
     when: ({ confirmTests }) => {
