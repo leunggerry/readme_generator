@@ -120,15 +120,16 @@ const PROJECT_QUESTIONS = [
   {
     type: "confirm",
     name: "confirmUsageVideo",
-    message: "Do you have link to a video of how to use your application?",
+    message:
+      "Do you have link to a video of how to use your application? (Please put the video in the res/images directory and name the file without space or special characters)",
     default: false,
   },
   {
     type: "input",
     name: "usageVideoLink",
-    message: "Please provide the link to your video of using your application: ",
-    when: ({ confirmUsageVideo }) => {
-      if (confirmUsageVideo) {
+    message: "Please provide the filename to your video of using your application: ",
+    when: ({ confirmUsage, confirmUsageVideo }) => {
+      if (confirmUsage && confirmUsageVideo) {
         return true;
       } else {
         return false;

@@ -37,15 +37,15 @@ function generateTableOfContents(installation, usage, contributors, tests, licen
   //append installation
   mdTableOfContents += installation ? `- [Installation Instructions](#installation)\n` : ``;
   // append usage
-  mdTableOfContents += usage ? `  - [Usage](#usage)\n` : ``;
+  mdTableOfContents += usage ? `- [Usage](#usage)\n` : ``;
   // append tests
-  mdTableOfContents += tests ? `  - [Tests](#tests)\n` : ``;
+  mdTableOfContents += tests ? `- [Tests](#tests)\n` : ``;
   // append contributors
-  mdTableOfContents += contributors ? `  - [Contributors](#contributors)\n` : ``;
+  mdTableOfContents += contributors ? `- [Contributors](#contributors)\n` : ``;
   // append questions
-  mdTableOfContents += `  - [Questions](#questions)\n`;
+  mdTableOfContents += `- [Questions](#questions)\n`;
   // append license
-  mdTableOfContents += license ? `  - [License](#license)\n` : ``;
+  mdTableOfContents += license ? `- [License](#license)\n` : ``;
 
   //return mdTable of contents
   return mdTableOfContents;
@@ -70,7 +70,9 @@ function generateMarkdown(data) {
     ? `## Installation\n${installInstructions.installInstructions}`
     : ``;
   let mdUsage = usage.include ? `## Usage\n${usage.usage}\n` : ``;
-  let mdUsageVideoLink = usageVideoLink.include ? `${usageVideoLink.usageVideoLink}` : ``;
+  let mdUsageVideoLink = usageVideoLink.include
+    ? `![](./res/images/${usageVideoLink.usageVideoLink})`
+    : ``;
   let mdLicenseBadge = license.include ? renderLicenseBadge(license.license) : ``;
   let mdLicense = license.include ? renderLicenseSection(license.license) : ``;
   let mdContributors = contributors.include ? `## Contributors\n${contributors.contributors}\n` : ``;
@@ -87,23 +89,23 @@ function generateMarkdown(data) {
 
   return `# ${projectTitle.projectTitle}
   ${mdLicenseBadge}
-  ${mdDescription}
+${mdDescription}
 
-  ## Table of Contents
-  ${mdTableOfContents}
+## Table of Contents
+${mdTableOfContents}
 
-  ${mdInstallInstructions}
-  ${mdUsage}
-  ${mdUsageVideoLink}
-  ${mdTests}
-  ${mdContributors}
-  ## Questions
-  If you have any questions regarding the status of this project or any concerns please refer to my GitHub repo:
-  [${githubUsername.githubUsername}](https://github.com/${githubUsername.githubUsername})
-  For more information you can contact:
-  [${email.email}](mailto:${email.email})
-  ${mdLicense}
-  `;
+${mdInstallInstructions}
+${mdUsage}
+${mdUsageVideoLink}
+${mdTests}
+${mdContributors}
+## Questions
+If you have any questions regarding the status of this project or any concerns please refer to my GitHub repo:
+[${githubUsername.githubUsername}](https://github.com/${githubUsername.githubUsername})
+For more information you can contact:
+[${email.email}](mailto:${email.email})
+${mdLicense}
+`;
 }
 
 /** Module Exports
