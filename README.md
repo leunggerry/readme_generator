@@ -1,4 +1,4 @@
-# README Generator
+# ReadMe Generator
   [<img src="https://img.shields.io/badge/license-ISC-green">](#license)
 ## Description 
 This project will ask some questions about the project that is being created, and a Markdown document will be generated. A generated_README.md will be created and that can be copied to the README.md project file.
